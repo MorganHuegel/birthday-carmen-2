@@ -1,0 +1,45 @@
+.landing {
+  padding: 250px 0 20px 0;
+}
+
+.landing .rope-bg {
+  background-image: url("../../images/rope.png");
+  width: 100vw;
+  height: 10px;
+  background-position: center center;
+}
+
+.landing .jeremy {
+  width: 40vw;
+  max-width: 300px;
+  position: absolute;
+  top: calc(250px - 9.5vw);
+  left: 58vw;
+}
+@media only screen and (min-width: 800px) {
+  .landing .jeremy {
+    top: calc(250px - 72px);
+    left: calc(95vw - 300px);
+  }
+}
+.landing .jeremiah {
+  width: 35vw;
+  max-width: 220px;
+  position: absolute;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  left: 5vw;
+  top: calc(250px - 21.7vw);
+}
+@media only screen and (min-width: 628px) {
+  .landing .jeremiah {
+    top: calc(250px - 136px);
+  }
+}
+
+.landing .birthday-img {
+  width: 40vw;
+  min-width: 300px;
+  display: block;
+  margin: 0 auto;
+}
