@@ -10,6 +10,16 @@ const Landing = () => (
     <img src={possumImg} alt="Jermiah the possum" className="jeremiah" />
     <div className="rope-bg" />
     <img src={birthdayImg} alt="happy birthday" className="birthday-img" />
+    <p className="critter-font">
+      mPmpMpMppMp hi KaRmIn mpmP huZbaDn and mE mAde u somE riDDles mpmPmp haPPy
+      biRthdAy
+    </p>
+    <p className="critter-font signature">
+      jeRemy thE Racc0on{" "}
+      <span role="img" ariaLabel="Paw Print">
+        {String.fromCodePoint("0x1F43E")}
+      </span>
+    </p>
   </div>
 );
 

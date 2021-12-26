@@ -43,3 +43,19 @@
   display: block;
   margin: 0 auto;
 }
+
+.landing .critter-font {
+  font-size: 22px;
+  text-align: left;
+  margin: 1.4em auto 0 auto;
+  max-width: 280px;
+}
+.landing .critter-font.signature {
+  margin: 0.4em auto 0 auto;
+}
+@media only screen and (min-width: 620px) {
+  .landing .critter-font {
+    font-size: 36px;
+    max-width: 580px;
+  }
+}

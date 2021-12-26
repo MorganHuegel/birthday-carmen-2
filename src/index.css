@@ -20,3 +20,7 @@ html {
   --theme-brown: #58504a;
   background-color: var(--theme-blue);
 }
+
+.critter-font {
+  font-family: "Nanum Brush Script", cursive;
+}
