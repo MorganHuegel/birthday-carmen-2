@@ -6,9 +6,8 @@ import birthdayImg from "../../images/birthdayLogo.png";
 import raccoonImg from "../../images/raccoon.png";
 import possumImg from "../../images/possum.png";
 
-const Landing = () => {
+const Landing = ({ start }) => {
   const { width, height } = useWindowSize();
-  console.log("width", width);
 
   return (
     <div className="landing">
@@ -17,6 +16,9 @@ const Landing = () => {
         height={height}
         numberOfPieces={width < 500 ? 100 : 200}
       />
+      <button type="button" onClick={start} className="startButton">
+        Start
+      </button>
       <img src={raccoonImg} alt="Jermey the raccoon" className="jeremy" />
       <img src={possumImg} alt="Jermiah the possum" className="jeremiah" />
       <div className="rope-bg" />
@@ -24,7 +26,7 @@ const Landing = () => {
 
       <div className="message-container">
         <p className="critter-font">
-          mPmpMpMppMp hi KaRmIn mpmP huZbaDn and mE mAde u somE riDDles mpmPmp
+          mPmpMpMppMp hi KaRmin mpmP huZbaDn and mE mAde u somE riDDles mpmPmp
           haPPy biRthdAy
         </p>
         <p className="critter-font signature">

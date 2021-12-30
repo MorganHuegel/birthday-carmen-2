@@ -2,6 +2,31 @@
   padding: 210px 0 20px 0;
 }
 
+.landing .startButton {
+  position: absolute;
+  top: 40px;
+  left: calc(50% - 40.35px);
+  z-index: 50;
+  font-size: 24px;
+  background-color: var(--theme-purple);
+  color: white;
+  border: 1px solid var(--theme-purple-darkened);
+  border-radius: 5px;
+  padding: 8px 15px;
+  box-shadow: 1px 1px 3px black;
+}
+.landing .startButton:hover,
+.landing .startButton:focus {
+  cursor: pointer;
+  background-color: var(--theme-purple-darkened);
+}
+@media only screen and (min-width: 800px) {
+  .landing .startButton {
+    font-size: 60px;
+    left: calc(50% - 79.36px);
+  }
+}
+
 .landing .rope-bg {
   background-image: url("../../images/rope.png");
   width: 100vw;

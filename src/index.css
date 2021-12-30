@@ -20,7 +20,8 @@ code {
 html {
   --theme-salmon: #dbb1bc;
   --theme-light-purple: #d3c4e3;
-  --theme-purple: #8f95d3;
+  --theme-purple: #8288ce;
+  --theme-purple-darkened: #6870c4;
   --theme-blue: #89daff;
   --theme-brown: #58504a;
   background-color: var(--theme-blue);
