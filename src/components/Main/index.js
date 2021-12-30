@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import Landing from "../Landing";
+import Transition from "../Transition";
 
 const Main = () => {
   const [riddleNumber, setRiddleNumber] = useState(null);
 
-  switch (riddleNumber) {
-    case 1:
-      return;
-    case 2:
-      return;
-    case 3:
-      return;
-    case 4:
-      return;
-    case 5:
-      return;
-    default:
-      return <Landing start={() => setRiddleNumber(1)} />;
+  if (typeof riddleNumber === "number") {
+    return <p>Riddle {riddleNumber}</p>;
   }
+
+  if (typeof riddleNumber === "string" && /^transition/.test(riddleNumber)) {
+    return <Transition transition={riddleNumber.replace("transition", "")} />;
+  }
+
+  return <Landing start={() => setRiddleNumber("transition1")} />;
 };
 
 export default Main;
