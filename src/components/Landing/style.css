@@ -1,5 +1,5 @@
 .landing {
-  padding: 210px 0 20px 0;
+  padding: 200px 0 20px 0;
 }
 
 .landing .startButton {
@@ -38,12 +38,12 @@
   width: 40vw;
   max-width: 300px;
   position: absolute;
-  top: calc(210px - 9.5vw);
+  top: calc(200px - 9.5vw);
   left: 58vw;
 }
 @media only screen and (min-width: 800px) {
   .landing .jeremy {
-    top: calc(210px - 72px);
+    top: calc(200px - 72px);
     left: calc(95vw - 300px);
   }
 }
@@ -54,11 +54,11 @@
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   left: 5vw;
-  top: calc(210px - 21.7vw);
+  top: calc(200px - 21.7vw);
 }
 @media only screen and (min-width: 628px) {
   .landing .jeremiah {
-    top: calc(210px - 136px);
+    top: calc(200px - 136px);
   }
 }
 

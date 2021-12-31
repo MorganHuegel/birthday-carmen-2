@@ -4,7 +4,7 @@ import wordBubble from "../../images/wordbubble.png";
 import raccoonMouthOpen from "../../images/raccoon_mouthopen.png";
 import possumMouthOpen from "../../images/possum_mouthopen.png";
 
-const Transition = ({ transition }) => {
+const Transition = ({ onTransitionEnd, title, transition }) => {
   const titleEl = useRef();
   const jeremyEl = useRef();
   const jeremiahEl = useRef();
@@ -44,7 +44,7 @@ const Transition = ({ transition }) => {
       }
     }, 4000);
 
-    // cleanup
+    // jeremy takes 1000ms to come in, plus 2500ms to read it
     setTimeout(() => {
       if (jeremyEl.current) {
         jeremyEl.current.style.left =
@@ -57,22 +57,23 @@ const Transition = ({ transition }) => {
         jeremiahEl.current.style.top =
           getInitialOffscreenPosition("jeremiah").top;
       }
-    }, 6500);
+    }, 7500);
+
+    // 1000ms for cleanup
+    setTimeout(() => onTransitionEnd(), 8500);
   }, []);
 
   const contentMapper = {
     1: {
-      title: "The Duh",
-
       jeremyFlyInFrom: "left",
       jeremyMsg: "mPmpmP go0d lUck kaRmin",
       jeremyImg: raccoonMouthOpen,
       jeremyLeft: "0",
-      jeremyTop: "calc(100vh - 187px)",
       jeremyLeftMobile: "0",
+      jeremyTop: "calc(100vh - 186px)",
       jeremyTopMobile: "calc(100vh - 111px)",
       jeremyWordTop: "calc(100vh - 333px)",
-      jeremyWordTopMobile: "calc(100vh - 187px)",
+      jeremyWordTopMobile: "calc(100vh - 186px)",
       jeremyWordLeft: "210px",
       jeremyWordLeftMobile: "120px",
       jeremyWordMirrored: true,
@@ -81,13 +82,13 @@ const Transition = ({ transition }) => {
       jeremiahMsg: "mpmP yeAh yoU'LL neEd iT mpmPMppMp",
       jeremiahImg: possumMouthOpen,
       jeremiahLeft: "calc(100vw - 270px)",
-      jeremiahTop: "187px",
       jeremiahLeftMobile: "calc(100vw - 170px)",
+      jeremiahTop: "227px",
       jeremiahTopMobile: "187px",
-      jeremiahWordTop: "100px",
+      jeremiahWordTop: "20px",
       jeremiahWordTopMobile: "100px",
-      jeremiahWordLeft: "calc(100vw - 470px)",
-      jeremiahWordLeftMobile: "calc(100vw - 340px)",
+      jeremiahWordLeft: "calc(100vw - 400px)",
+      jeremiahWordLeftMobile: "calc(100vw - 240px)",
       jeremiahWordMirrored: false,
     },
   };
@@ -122,8 +123,8 @@ const Transition = ({ transition }) => {
 
   return (
     <div className="transition">
-      <h1 className="title" ref={titleEl}>
-        Riddle {transition}: {content.title}
+      <h1 className="riddleTitle" ref={titleEl}>
+        Riddle {transition}: {title}
       </h1>
 
       <div

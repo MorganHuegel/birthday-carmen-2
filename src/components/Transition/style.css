@@ -1,10 +1,12 @@
-.transition .title {
-  position: relative;
+.riddleTitle {
   text-align: center;
+  font-weight: 100;
+  font-size: 40px;
+}
+.transition .riddleTitle {
+  position: relative;
   top: 100vh;
   transition: top 1000ms linear;
-  font-size: 40px;
-  font-weight: 100;
 }
 .transition .title.fixed {
   top: 0px;
@@ -21,7 +23,7 @@
 }
 .transition .word-bubble p {
   position: absolute;
-  top: 2%;
+  top: 10%;
   left: 8%;
   padding-right: 10%;
   font-weight: 100;
