@@ -1,0 +1,41 @@
+.transition .title {
+  position: relative;
+  text-align: center;
+  top: 100vh;
+  transition: top 1000ms linear;
+  font-size: 40px;
+  font-weight: 100;
+}
+.transition .title.fixed {
+  top: 0px;
+}
+
+.transition .critter-img,
+.transition .word-bubble {
+  width: 150px;
+  position: absolute;
+}
+.transition .word-bubble img,
+.transition .word-bubble p {
+  width: 100%;
+}
+.transition .word-bubble p {
+  position: absolute;
+  top: 2%;
+  left: 8%;
+  padding-right: 10%;
+  font-weight: 100;
+}
+@media only screen and (min-width: 600px) {
+  .transition .critter-img,
+  .transition .word-bubble {
+    width: 250px;
+  }
+}
+
+.transition .critter-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 1000ms linear, top 1000ms linear;
+}
