@@ -10,6 +10,7 @@ body {
 body,
 body * {
   box-sizing: border-box;
+  font-family: "Bangers", cursive;
 }
 
 code {
