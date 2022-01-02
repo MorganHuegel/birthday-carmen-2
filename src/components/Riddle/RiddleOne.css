@@ -1,0 +1,10 @@
+.riddle-one .image-container {
+  position: absolute;
+  z-index: -1;
+  height: calc(100vh - 97px);
+  width: 100vw;
+}
+
+.riddle-one .image {
+  position: absolute;
+}

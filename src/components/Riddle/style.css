@@ -1,0 +1,18 @@
+.clue-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.clue-container .clue-text {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+}
+
+.clue-container .clue-text p {
+  margin-bottom: 7px;
+}
+.clue-container .clue-text p:last-child {
+  margin-bottom: 0;
+}
