@@ -2,9 +2,9 @@ import React from "react";
 import RiddleOne from "./RiddleOne";
 import "./style.css";
 
-const Riddle = ({ riddleNumber, title }) => {
+const Riddle = ({ riddleNumber, title, onRiddleCorrect }) => {
   const riddleMapper = {
-    1: <RiddleOne />,
+    1: <RiddleOne onRiddleCorrect={onRiddleCorrect} />,
   };
 
   return (

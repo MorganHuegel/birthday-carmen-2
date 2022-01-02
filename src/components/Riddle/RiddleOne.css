@@ -3,6 +3,8 @@
   z-index: -1;
   height: calc(100vh - 97px);
   width: 100vw;
+  transition: top 1s linear;
+  top: -1000px;
 }
 
 .riddle-one .image {

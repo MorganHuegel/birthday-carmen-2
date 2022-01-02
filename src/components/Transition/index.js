@@ -91,6 +91,33 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremiahWordLeftMobile: "calc(100vw - 240px)",
       jeremiahWordMirrored: false,
     },
+    2: {
+      jeremyFlyInFrom: "left",
+      jeremyMsg: "mPmpmP go0d lUck kaRmin",
+      jeremyImg: raccoonMouthOpen,
+      jeremyLeft: "0",
+      jeremyLeftMobile: "0",
+      jeremyTop: "calc(100vh - 186px)",
+      jeremyTopMobile: "calc(100vh - 111px)",
+      jeremyWordTop: "calc(100vh - 333px)",
+      jeremyWordTopMobile: "calc(100vh - 186px)",
+      jeremyWordLeft: "210px",
+      jeremyWordLeftMobile: "120px",
+      jeremyWordMirrored: true,
+
+      jeremiahFlyInFrom: "top",
+      jeremiahMsg: "mpmP yeAh yoU'LL neEd iT mpmPMppMp",
+      jeremiahImg: possumMouthOpen,
+      jeremiahLeft: "calc(100vw - 270px)",
+      jeremiahLeftMobile: "calc(100vw - 170px)",
+      jeremiahTop: "227px",
+      jeremiahTopMobile: "187px",
+      jeremiahWordTop: "20px",
+      jeremiahWordTopMobile: "100px",
+      jeremiahWordLeft: "calc(100vw - 400px)",
+      jeremiahWordLeftMobile: "calc(100vw - 240px)",
+      jeremiahWordMirrored: false,
+    },
   };
 
   let content = contentMapper[transition];

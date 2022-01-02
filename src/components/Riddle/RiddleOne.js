@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./RiddleOne.css";
 import balloon1 from "../../images/RiddleOne/balloon1.png";
 import balloon2 from "../../images/RiddleOne/balloon2.png";
@@ -14,7 +14,7 @@ import office2 from "../../images/RiddleOne/office birthday 2.png";
 import spongebob from "../../images/RiddleOne/spongebob birthday.png";
 import hagrid from "../../images/RiddleOne/birthday harrypotter.png";
 
-const RiddleOne = () => {
+const RiddleOne = ({ onRiddleCorrect }) => {
   const images = [
     {
       src: balloon1,
@@ -52,7 +52,7 @@ const RiddleOne = () => {
         width: "15%",
         maxWidth: "110px",
         left: "33%",
-        bottom: "50%",
+        bottom: "38%",
         zIndex: 1,
       },
     },
@@ -134,24 +134,42 @@ const RiddleOne = () => {
       style: {
         width: "50%",
         maxWidth: "500px",
-        top: "calc(61px + 4%)",
+        top: "calc(107px + 4%)",
         left: "5%",
         zIndex: -1,
       },
     },
   ];
+
+  const imageContainerEl = useRef();
+  useEffect(() => {
+    setTimeout(() => {
+      if (imageContainerEl.current) {
+        imageContainerEl.current.style.top = "97px";
+      }
+    }, 500);
+  }, []);
+
   return (
     <div className="riddle-one">
-      <div className="image-container">
+      <div className="image-container" ref={imageContainerEl}>
         {images.map(image => (
-          <img src={image.src} style={image.style} className="image" />
+          <img
+            key={image.src}
+            src={image.src}
+            style={image.style}
+            className="image"
+          />
         ))}
       </div>
       <div className="clue-container">
         <div className="clue-text">
-          <p>This one's easy; the skills are within you.</p>
+          <p>This riddle is a little stuupy.</p>
+          <p>It might make your attitude poopy.</p>
+          <p>I promise, the skills are within you.</p>
           <p>
-            Just click <span>anywhere</span> to continue.
+            Just click <span onClick={onRiddleCorrect}>anywhere</span> to
+            continue.
           </p>
         </div>
       </div>
