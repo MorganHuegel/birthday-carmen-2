@@ -1,10 +1,21 @@
 import React from "react";
 import RiddleOne from "./RiddleOne";
+import FeedbackWrapper from "../FeedbackWrapper";
 import "./style.css";
 
-const Riddle = ({ riddleNumber, title, onRiddleCorrect }) => {
+const Riddle = ({
+  riddleNumber,
+  title,
+  onRiddleCorrect,
+  addCritterFeedback,
+}) => {
   const riddleMapper = {
-    1: <RiddleOne onRiddleCorrect={onRiddleCorrect} />,
+    1: (
+      <RiddleOne
+        onRiddleCorrect={onRiddleCorrect}
+        addCritterFeedback={addCritterFeedback}
+      />
+    ),
   };
 
   return (
@@ -17,4 +28,4 @@ const Riddle = ({ riddleNumber, title, onRiddleCorrect }) => {
   );
 };
 
-export default Riddle;
+export default FeedbackWrapper(Riddle);

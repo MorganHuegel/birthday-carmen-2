@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./RiddleOne.css";
 import balloon1 from "../../images/RiddleOne/balloon1.png";
 import balloon2 from "../../images/RiddleOne/balloon2.png";
@@ -14,7 +14,7 @@ import office2 from "../../images/RiddleOne/office birthday 2.png";
 import spongebob from "../../images/RiddleOne/spongebob birthday.png";
 import hagrid from "../../images/RiddleOne/birthday harrypotter.png";
 
-const RiddleOne = ({ onRiddleCorrect }) => {
+const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
   const images = [
     {
       src: balloon1,
@@ -42,7 +42,7 @@ const RiddleOne = ({ onRiddleCorrect }) => {
         width: "15%",
         maxWidth: "110px",
         right: "42.5%",
-        bottom: "70%",
+        bottom: "56%",
         zIndex: 1,
       },
     },
@@ -51,8 +51,8 @@ const RiddleOne = ({ onRiddleCorrect }) => {
       style: {
         width: "15%",
         maxWidth: "110px",
-        left: "33%",
-        bottom: "38%",
+        left: "63%",
+        bottom: "24%",
         zIndex: 1,
       },
     },
@@ -61,8 +61,8 @@ const RiddleOne = ({ onRiddleCorrect }) => {
       style: {
         width: "25%",
         maxWidth: "190px",
-        right: "5%",
-        top: "20%",
+        right: "-6%",
+        top: "35%",
         zIndex: 1,
       },
     },
@@ -72,7 +72,7 @@ const RiddleOne = ({ onRiddleCorrect }) => {
         width: "25%",
         maxWidth: "190px",
         right: "-3%",
-        top: "-60px",
+        top: "47px",
         zIndex: 1,
       },
     },
@@ -81,8 +81,8 @@ const RiddleOne = ({ onRiddleCorrect }) => {
       style: {
         width: "17%",
         maxWidth: "120px",
-        left: "-5%",
-        top: "40%",
+        left: "-4%",
+        top: "45%",
         zIndex: 1,
       },
     },
@@ -90,8 +90,8 @@ const RiddleOne = ({ onRiddleCorrect }) => {
       src: sash,
       style: {
         width: "200px",
-        left: "-30px",
-        top: "-114px",
+        left: "-20px",
+        top: "-16px",
         zIndex: 1,
       },
     },
@@ -134,21 +134,56 @@ const RiddleOne = ({ onRiddleCorrect }) => {
       style: {
         width: "50%",
         maxWidth: "500px",
-        top: "calc(107px + 4%)",
+        top: "calc(200px + 4%)",
         left: "5%",
         zIndex: -1,
       },
     },
   ];
 
+  const feedback = {
+    2: "mPmpMp nopE tRy aGain kaRmin",
+    3: "HA! STUUPS!",
+    7: "hoomAns thiNk theRe SOoo0 smARt",
+    8: "huZbaNd hagRid wRiteS liKe wee d0 hmpphmPmhPMp",
+    10: "w0w kaRmin thAt's 10 cLicks alReadY",
+    11: "we're staRting t0 feel BaD 4 U mpMpmp",
+    14: "dId U reAd the hiNt?",
+    15: "huzbandd lo0k she cAnt dO it hmpHmPhMphM",
+    17: "karMin, ju5t clicK anywheRe!",
+    18: "nO n0t thEre! ANYWHERE!",
+    20: "mPmpmP huzband i thInk we sTumPed her mpmpmp",
+    21: "yEaH u bEtter aSk duM m0Rgan for a hiNt",
+    22: 'rememBeR kaRmin, "ANYWHERE"',
+  };
+
   const imageContainerEl = useRef();
+  const [clickCount, setClickCount] = useState(0);
   useEffect(() => {
     setTimeout(() => {
       if (imageContainerEl.current) {
-        imageContainerEl.current.style.top = "97px";
+        imageContainerEl.current.style.top = "0px";
       }
     }, 500);
   }, []);
+
+  useEffect(() => {
+    function observeClicks() {
+      setClickCount(prev => prev + 1);
+    }
+
+    if (feedback[clickCount]) {
+      addCritterFeedback(feedback[clickCount]);
+    }
+
+    document
+      .getElementsByTagName("body")[0]
+      .addEventListener("click", observeClicks);
+    return () =>
+      document
+        .getElementsByTagName("body")[0]
+        .removeEventListener("click", observeClicks);
+  }, [clickCount]);
 
   return (
     <div className="riddle-one">
@@ -166,7 +201,7 @@ const RiddleOne = ({ onRiddleCorrect }) => {
         <div className="clue-text">
           <p>This riddle is a little stuupy.</p>
           <p>It might make your attitude poopy.</p>
-          <p>I promise, the skills are within you.</p>
+          <p>But I promise, the skills are within you.</p>
           <p>
             Just click <span onClick={onRiddleCorrect}>anywhere</span> to
             continue.

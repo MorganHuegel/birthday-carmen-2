@@ -21,7 +21,6 @@ const Main = () => {
 
   if (/^transition/.test(riddleNumber)) {
     const transitionNum = riddleNumber.replace("transition", "");
-    console.log("transitionNum", transitionNum, typeof transitionNum);
     return (
       <Transition
         onTransitionEnd={() => setRiddleNumber(transitionNum)}
