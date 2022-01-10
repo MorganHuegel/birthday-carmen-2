@@ -168,8 +168,25 @@ const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
   }, []);
 
   useEffect(() => {
-    function observeClicks() {
-      setClickCount(prev => prev + 1);
+    function observeClicks(e) {
+      let node = e.target;
+      let isClickingFeedback = false;
+      while (!isClickingFeedback && node.parentNode) {
+        if (
+          /* if click on close-message, parentNode unmounts
+           *  so we must check them separately */
+          node.classList.contains("message") ||
+          node.classList.contains("close-message")
+        ) {
+          isClickingFeedback = true;
+          break;
+        }
+        node = node.parentNode;
+      }
+
+      if (!isClickingFeedback) {
+        setClickCount(prev => prev + 1);
+      }
     }
 
     if (feedback[clickCount]) {
