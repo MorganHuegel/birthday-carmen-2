@@ -12,12 +12,13 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     function checkIsMobile() {
-      if (!isMobile && window.innerWidth < 600) {
+      if (!isMobile && window.outerWidth < 600) {
         setIsMobile(true);
-      } else if (isMobile && window.innerWidth >= 600) {
+      } else if (isMobile && window.outerWidth >= 600) {
         setIsMobile(false);
       }
     }
+
     checkIsMobile();
     window.addEventListener("resize", checkIsMobile);
     return () => window.removeEventListener("resize", checkIsMobile);
@@ -76,6 +77,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremyWordTopMobile: "calc(100vh - 186px)",
       jeremyWordLeft: "210px",
       jeremyWordLeftMobile: "120px",
+      jeremyMirrored: false,
       jeremyWordMirrored: true,
 
       jeremiahFlyInFrom: "top",
@@ -89,34 +91,37 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremiahWordTopMobile: "100px",
       jeremiahWordLeft: "calc(100vw - 400px)",
       jeremiahWordLeftMobile: "calc(100vw - 240px)",
+      jeremiahMirrored: false,
       jeremiahWordMirrored: false,
     },
     2: {
-      jeremyFlyInFrom: "left",
-      jeremyMsg: "mPmpmP go0d lUck kaRmin",
+      jeremyFlyInFrom: "top",
+      jeremyMsg: "mPmpmP w0w to0k u loNg enUff",
       jeremyImg: raccoonMouthOpen,
-      jeremyLeft: "0",
-      jeremyLeftMobile: "0",
-      jeremyTop: "calc(100vh - 186px)",
-      jeremyTopMobile: "calc(100vh - 111px)",
-      jeremyWordTop: "calc(100vh - 333px)",
-      jeremyWordTopMobile: "calc(100vh - 186px)",
-      jeremyWordLeft: "210px",
-      jeremyWordLeftMobile: "120px",
-      jeremyWordMirrored: true,
+      jeremyLeft: "calc(100vw - 251px)",
+      jeremyLeftMobile: "calc(100vw - 151px)",
+      jeremyTop: "224px",
+      jeremyTopMobile: "150px",
+      jeremyWordTop: "140px",
+      jeremyWordTopMobile: "69px",
+      jeremyWordLeft: "calc(100vw - 451px)",
+      jeremyWordLeftMobile: "calc(100vw - 260px)",
+      jeremyMirrored: true,
+      jeremyWordMirrored: false,
 
-      jeremiahFlyInFrom: "top",
-      jeremiahMsg: "mpmP yeAh yoU'LL neEd iT mpmPMppMp",
+      jeremiahFlyInFrom: "right",
+      jeremiahMsg: "mpmP huzbaNd she'll nevEr geT tHis onE mpmPmp",
       jeremiahImg: possumMouthOpen,
-      jeremiahLeft: "calc(100vw - 270px)",
-      jeremiahLeftMobile: "calc(100vw - 170px)",
-      jeremiahTop: "227px",
-      jeremiahTopMobile: "187px",
-      jeremiahWordTop: "20px",
-      jeremiahWordTopMobile: "100px",
-      jeremiahWordLeft: "calc(100vw - 400px)",
-      jeremiahWordLeftMobile: "calc(100vw - 240px)",
-      jeremiahWordMirrored: false,
+      jeremiahLeft: "80px",
+      jeremiahLeftMobile: "22px",
+      jeremiahTop: "calc(100vh - 199px)",
+      jeremiahTopMobile: "calc(100vh - 101px)",
+      jeremiahWordTop: "calc(100vh - 385px)",
+      jeremiahWordTopMobile: "calc(100vh - 210px)",
+      jeremiahWordLeft: "275px",
+      jeremiahWordLeftMobile: "142px",
+      jeremiahMirrored: true,
+      jeremiahWordMirrored: true,
     },
   };
 
@@ -165,6 +170,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
           style={{
             top: isMobile ? content.jeremyTopMobile : content.jeremyTop,
             left: isMobile ? content.jeremyLeftMobile : content.jeremyLeft,
+            transform: content.jeremyMirrored ? "scaleX(-1)" : "",
           }}
           alt="jeremy the raccoon"
         />
@@ -199,6 +205,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
           style={{
             top: isMobile ? content.jeremiahTopMobile : content.jeremiahTop,
             left: isMobile ? content.jeremiahLeftMobile : content.jeremiahLeft,
+            transform: content.jeremiahMirrored ? "scaleX(-1)" : "",
           }}
           alt="jeremiah the possum"
         />

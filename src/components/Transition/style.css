@@ -36,7 +36,7 @@
 }
 
 .transition .critter-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: left 1000ms linear, top 1000ms linear;
