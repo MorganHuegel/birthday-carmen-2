@@ -1,5 +1,6 @@
 import React from "react";
 import RiddleOne from "./RiddleOne";
+import RiddleTwo from "./RiddleTwo";
 import FeedbackWrapper from "../FeedbackWrapper";
 import "./style.css";
 
@@ -12,6 +13,12 @@ const Riddle = ({
   const riddleMapper = {
     1: (
       <RiddleOne
+        onRiddleCorrect={onRiddleCorrect}
+        addCritterFeedback={addCritterFeedback}
+      />
+    ),
+    2: (
+      <RiddleTwo
         onRiddleCorrect={onRiddleCorrect}
         addCritterFeedback={addCritterFeedback}
       />

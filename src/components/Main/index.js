@@ -5,7 +5,11 @@ import Riddle from "../Riddle";
 
 const Main = () => {
   const [riddleNumber, setRiddleNumber] = useState(null);
-  const titleMapper = { 1: "The Duh", 2: "Next" };
+  const titleMapper = {
+    1: "The Duh",
+    2: "The Abstract",
+    3: "The Real Riddle",
+  };
 
   if (/^[0-9]{1,}/.test(riddleNumber)) {
     return (
