@@ -20,12 +20,13 @@
 .transition .word-bubble img,
 .transition .word-bubble p {
   width: 100%;
+  height: 100%;
 }
 .transition .word-bubble p {
   position: absolute;
   top: 10%;
   left: 8%;
-  padding-right: 10%;
+  padding-right: 13%;
   font-weight: 100;
 }
 @media only screen and (min-width: 600px) {

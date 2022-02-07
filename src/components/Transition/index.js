@@ -2,68 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
 import wordBubble from "../../images/wordbubble.png";
 import raccoonMouthOpen from "../../images/raccoon_mouthopen.png";
+import raccoonSecret from "../../images/raccoon_secret.png";
 import possumMouthOpen from "../../images/possum_mouthopen.png";
 
 const Transition = ({ onTransitionEnd, title, transition }) => {
-  const titleEl = useRef();
-  const jeremyEl = useRef();
-  const jeremiahEl = useRef();
-
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    function checkIsMobile() {
-      if (!isMobile && window.outerWidth < 600) {
-        setIsMobile(true);
-      } else if (isMobile && window.outerWidth >= 600) {
-        setIsMobile(false);
-      }
-    }
-
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, [isMobile]);
-
-  useEffect(() => {
-    if (titleEl.current) {
-      titleEl.current.style.top = "0px";
-    }
-
-    // title takes 2000ms to rise
-    setTimeout(() => {
-      if (jeremyEl.current) {
-        jeremyEl.current.style.left = "0px";
-        jeremyEl.current.style.top = "0px";
-      }
-    }, 1000);
-
-    // jeremy takes 1000ms to come in, plus 2000ms to read it
-    setTimeout(() => {
-      if (jeremiahEl.current) {
-        jeremiahEl.current.style.left = "0px";
-        jeremiahEl.current.style.top = "0px";
-      }
-    }, 4000);
-
-    // jeremy takes 1000ms to come in, plus 2500ms to read it
-    setTimeout(() => {
-      if (jeremyEl.current) {
-        jeremyEl.current.style.left =
-          getInitialOffscreenPosition("jeremy").left;
-        jeremyEl.current.style.top = getInitialOffscreenPosition("jeremy").top;
-      }
-      if (jeremiahEl.current) {
-        jeremiahEl.current.style.left =
-          getInitialOffscreenPosition("jeremiah").left;
-        jeremiahEl.current.style.top =
-          getInitialOffscreenPosition("jeremiah").top;
-      }
-    }, 7500);
-
-    // 1000ms for cleanup
-    setTimeout(() => onTransitionEnd(), 8500);
-  }, []);
-
   const contentMapper = {
     1: {
       jeremyFlyInFrom: "left",
@@ -124,35 +66,112 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremiahWordMirrored: true,
     },
     3: {
-      jeremyFlyInFrom: "top",
-      jeremyMsg: "mPmpmP w0w to0k u loNg enUff",
-      jeremyImg: raccoonMouthOpen,
-      jeremyLeft: "calc(100vw - 251px)",
+      jeremyFlyInFrom: "bottom",
+      jeremyMsg: "SsShsHhh! mPmPmpmp beTter solVe thiS oNe quiCk kaRmiN!",
+      jeremyImg: raccoonSecret,
+      jeremyLeft: "calc(100vw - 300px)",
       jeremyLeftMobile: "calc(100vw - 151px)",
-      jeremyTop: "224px",
-      jeremyTopMobile: "150px",
-      jeremyWordTop: "140px",
-      jeremyWordTopMobile: "69px",
-      jeremyWordLeft: "calc(100vw - 451px)",
-      jeremyWordLeftMobile: "calc(100vw - 260px)",
-      jeremyMirrored: true,
+      jeremyTop: "calc(100vh - 255px)",
+      jeremyTopMobile: "calc(100vh - 154px)",
+      jeremyWordHeight: "200px",
+      jeremyWordTop: "calc(100vh - 364px)",
+      jeremyWordTopMobile: "calc(100vh - 297px)",
+      jeremyWordLeft: "calc(100vw - 433px)",
+      jeremyWordLeftMobile: "calc(100vw - 283px)",
+      jeremyMirrored: false,
       jeremyWordMirrored: false,
 
-      jeremiahFlyInFrom: "right",
-      jeremiahMsg: "mpmP huzbaNd she'll nevEr geT tHis onE mpmPmp",
+      jeremiahFlyInFrom: "left",
+      jeremiahMsg:
+        "sshhhHh huZbaNd! U giVe heR thE laSt riDdle wHiLe i sTeal hEr biRthdaY deSseRts mpmpmp",
       jeremiahImg: possumMouthOpen,
-      jeremiahLeft: "80px",
-      jeremiahLeftMobile: "22px",
-      jeremiahTop: "calc(100vh - 199px)",
-      jeremiahTopMobile: "calc(100vh - 101px)",
-      jeremiahWordTop: "calc(100vh - 385px)",
-      jeremiahWordTopMobile: "calc(100vh - 210px)",
-      jeremiahWordLeft: "275px",
-      jeremiahWordLeftMobile: "142px",
-      jeremiahMirrored: true,
+      jeremiahLeft: "22px",
+      jeremiahLeftMobile: "9px",
+      jeremiahTop: "244px",
+      jeremiahTopMobile: "188px",
+      jeremiahWordHeight: "222px",
+      jeremiahWordWidth: "200px",
+      jeremiahWordTop: "91px",
+      jeremiahWordTopMobile: "40px",
+      jeremiahWordLeft: "247px",
+      jeremiahWordLeftMobile: "151px",
+      jeremiahMirrored: false,
       jeremiahWordMirrored: true,
     },
   };
+
+  const titleEl = useRef();
+  const jeremyEl = useRef();
+  const jeremiahEl = useRef();
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    function checkIsMobile() {
+      if (!isMobile && window.outerWidth < 600) {
+        setIsMobile(true);
+      } else if (isMobile && window.outerWidth >= 600) {
+        setIsMobile(false);
+      }
+    }
+
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (titleEl.current) {
+      titleEl.current.style.top = "0px";
+    }
+
+    function showJeremy() {
+      if (jeremyEl.current) {
+        jeremyEl.current.style.left = "0px";
+        jeremyEl.current.style.top = "0px";
+      }
+    }
+    function showJeremiah() {
+      if (jeremiahEl.current) {
+        jeremiahEl.current.style.left = "0px";
+        jeremiahEl.current.style.top = "0px";
+      }
+    }
+
+    const transitionDuration = 1000;
+    let firstFunc = showJeremy;
+    let readTimeFirst = 2000;
+    let secondFunc = showJeremiah;
+    let readTimeSecond = 2500;
+    if (Number(transition) === 3) {
+      readTimeFirst = 4000;
+      readTimeSecond = 3500;
+      firstFunc = showJeremiah;
+      secondFunc = showJeremy;
+    }
+
+    setTimeout(firstFunc, transitionDuration);
+
+    setTimeout(secondFunc, 2 * transitionDuration + readTimeFirst);
+
+    setTimeout(() => {
+      if (jeremyEl.current) {
+        jeremyEl.current.style.left =
+          getInitialOffscreenPosition("jeremy").left;
+        jeremyEl.current.style.top = getInitialOffscreenPosition("jeremy").top;
+      }
+      if (jeremiahEl.current) {
+        jeremiahEl.current.style.left =
+          getInitialOffscreenPosition("jeremiah").left;
+        jeremiahEl.current.style.top =
+          getInitialOffscreenPosition("jeremiah").top;
+      }
+    }, 3 * transitionDuration + readTimeFirst + readTimeSecond);
+
+    setTimeout(
+      onTransitionEnd,
+      4 * transitionDuration + readTimeFirst + readTimeSecond
+    );
+  }, []);
 
   let content = contentMapper[transition];
   function getInitialOffscreenPosition(critter) {
@@ -209,6 +228,8 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
             left: isMobile
               ? content.jeremyWordLeftMobile
               : content.jeremyWordLeft,
+            height: content.jeremyWordHeight || "initial",
+            width: content.jeremyWordWidth || "150px",
           }}
           className="word-bubble"
         >
@@ -246,6 +267,8 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
             left: isMobile
               ? content.jeremiahWordLeftMobile
               : content.jeremiahWordLeft,
+            height: content.jeremiahWordHeight || "initial",
+            width: content.jeremiahWordWidth || "150px",
           }}
           className="word-bubble"
         >
