@@ -14,6 +14,22 @@ import office2 from "../../images/RiddleOne/office birthday 2.png";
 import spongebob from "../../images/RiddleOne/spongebob birthday.png";
 import hagrid from "../../images/RiddleOne/birthday harrypotter.png";
 
+const feedback = {
+  2: "mPmpMp nopE tRy aGain kaRmin",
+  3: "HA! STUUPS!",
+  7: "hoomAns thiNk theRe SOoo0 smARt",
+  8: "huZbaNd hagRid wRiteS liKe wee d0 hmpphmPmhPMp",
+  10: "w0w kaRmin thAt's 10 cLicks alReadY",
+  11: "we're staRting t0 feel BaD 4 U mpMpmp",
+  14: "dId U reAd the hiNt?",
+  15: "huzbandd lo0k she cAnt dO it hmpHmPhMphM",
+  17: "karMin, ju5t clicK anywheRe!",
+  18: "nO n0t thEre! ANYWHERE!",
+  20: "mPmpmP huzband i thInk we sTumPed her mpmpmp",
+  21: "yEaH u bEtter aSk duM m0Rgan for a hiNt",
+  22: 'rememBeR kaRmin, "ANYWHERE"',
+};
+
 const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
   const images = [
     {
@@ -141,22 +157,6 @@ const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
     },
   ];
 
-  const feedback = {
-    2: "mPmpMp nopE tRy aGain kaRmin",
-    3: "HA! STUUPS!",
-    7: "hoomAns thiNk theRe SOoo0 smARt",
-    8: "huZbaNd hagRid wRiteS liKe wee d0 hmpphmPmhPMp",
-    10: "w0w kaRmin thAt's 10 cLicks alReadY",
-    11: "we're staRting t0 feel BaD 4 U mpMpmp",
-    14: "dId U reAd the hiNt?",
-    15: "huzbandd lo0k she cAnt dO it hmpHmPhMphM",
-    17: "karMin, ju5t clicK anywheRe!",
-    18: "nO n0t thEre! ANYWHERE!",
-    20: "mPmpmP huzband i thInk we sTumPed her mpmpmp",
-    21: "yEaH u bEtter aSk duM m0Rgan for a hiNt",
-    22: 'rememBeR kaRmin, "ANYWHERE"',
-  };
-
   const imageContainerEl = useRef();
   const [clickCount, setClickCount] = useState(0);
   useEffect(() => {
@@ -200,7 +200,7 @@ const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
       document
         .getElementsByTagName("body")[0]
         .removeEventListener("click", observeClicks);
-  }, [clickCount]);
+  }, [clickCount, addCritterFeedback]);
 
   return (
     <div className="riddle-one">
@@ -211,6 +211,7 @@ const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
             src={image.src}
             style={image.style}
             className="image"
+            alt={image.src}
           />
         ))}
       </div>

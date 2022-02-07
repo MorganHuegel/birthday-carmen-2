@@ -15,7 +15,7 @@ const Message = props => {
       }
       setCritterFeedbackMounted(i);
     }, 200);
-  }, []);
+  }, [f.isMessageMounted, i, setCritterFeedbackMounted]);
 
   return (
     <div

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import "./style.css";
 import wordBubble from "../../images/wordbubble.png";
 import raccoonMouthOpen from "../../images/raccoon_mouthopen.png";
@@ -100,6 +100,37 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
     },
   };
 
+  let content = contentMapper[transition];
+  const getInitialOffscreenPosition = useCallback(
+    critter => {
+      let left = 0;
+      let top = 0;
+
+      const direction = content[`${critter}FlyInFrom`];
+      switch (direction) {
+        case "top":
+          top = -1000;
+          break;
+        case "bottom":
+          top = 2000;
+          break;
+        case "left":
+          left = -1000;
+          break;
+        case "right":
+          left = 2000;
+          break;
+        default:
+        //
+      }
+      return {
+        left: left + "px",
+        top: top + "px",
+      };
+    },
+    [content]
+  );
+
   const titleEl = useRef();
   const jeremyEl = useRef();
   const jeremiahEl = useRef();
@@ -171,35 +202,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       onTransitionEnd,
       4 * transitionDuration + readTimeFirst + readTimeSecond
     );
-  }, []);
-
-  let content = contentMapper[transition];
-  function getInitialOffscreenPosition(critter) {
-    let left = 0;
-    let top = 0;
-
-    const direction = content[`${critter}FlyInFrom`];
-    switch (direction) {
-      case "top":
-        top = -1000;
-        break;
-      case "bottom":
-        top = 2000;
-        break;
-      case "left":
-        left = -1000;
-        break;
-      case "right":
-        left = 2000;
-        break;
-      default:
-      //
-    }
-    return {
-      left: left + "px",
-      top: top + "px",
-    };
-  }
+  }, [getInitialOffscreenPosition, onTransitionEnd, transition]);
 
   return (
     <div className="transition">
