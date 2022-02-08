@@ -19,7 +19,7 @@ const feedback = {
   13: "mPmPmpmp alrIght, no moRe hints. I tHink that's a WRAP",
 };
 
-const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
+const RiddleTwo = ({ onRiddleCorrect, addCritterFeedback }) => {
   const [submitCount, setSubmitCount] = useState(0);
   const [currVal, setCurrVal] = useState("");
   const [tryAgain, setTryAgain] = useState(false);
@@ -82,4 +82,4 @@ const RiddleOne = ({ onRiddleCorrect, addCritterFeedback }) => {
   );
 };
 
-export default RiddleOne;
+export default RiddleTwo;

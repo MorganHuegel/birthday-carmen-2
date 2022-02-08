@@ -1,0 +1,54 @@
+.riddle-three input {
+  display: block;
+  text-align: center;
+  margin: 45px auto 15px auto;
+  font-size: 30px;
+  padding: 5px;
+  letter-spacing: 1px;
+}
+.riddle-three input.wrong {
+  border-color: #d9534f;
+  background-color: #f2dede;
+}
+
+.riddle-three button {
+  display: block;
+  margin: 0 auto;
+  font-size: 24px;
+  background-color: var(--theme-purple);
+  color: white;
+  border: 1px solid var(--theme-purple-darkened);
+  border-radius: 5px;
+  padding: 8px 15px;
+  box-shadow: 1px 1px 3px black;
+}
+.riddle-three button:hover,
+.riddle-three button:focus {
+  cursor: pointer;
+  background-color: var(--theme-purple-darkened);
+}
+
+.riddle-three .try-again {
+  margin-top: 15px;
+  text-align: center;
+  color: #a94442;
+}
+
+.riddle-three .image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  align-items: flex-end;
+  position: absolute;
+  bottom: -500px;
+  transition: bottom 1s linear;
+}
+.riddle-three .image-container img:first-child {
+  max-width: 300px;
+  width: 30%;
+}
+.riddle-three .image-container img:last-child {
+  max-width: 500px;
+  width: 70%;
+}

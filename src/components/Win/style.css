@@ -1,0 +1,23 @@
+.win-page {
+  padding: 50px 0 20px 0;
+}
+
+.win-page .balloon-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.win-page .balloon-row img {
+  width: 20%;
+  max-width: 200px;
+}
+
+.win-page .needle-row {
+  display: flex;
+  justify-content: center;
+}
+.win-page .needle {
+  width: 45vw;
+  max-width: 300px;
+  transform: translate(0, -50%) rotate(54deg);
+}

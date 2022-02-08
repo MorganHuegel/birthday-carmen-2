@@ -15,7 +15,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremyLeftMobile: "0",
       jeremyTop: "calc(100vh - 186px)",
       jeremyTopMobile: "calc(100vh - 111px)",
-      jeremyWordTop: "calc(100vh - 333px)",
+      jeremyWordTop: "calc(100vh - 278px)",
       jeremyWordTopMobile: "calc(100vh - 186px)",
       jeremyWordLeft: "210px",
       jeremyWordLeftMobile: "120px",
@@ -29,7 +29,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremiahLeftMobile: "calc(100vw - 170px)",
       jeremiahTop: "227px",
       jeremiahTopMobile: "187px",
-      jeremiahWordTop: "20px",
+      jeremiahWordTop: "120px",
       jeremiahWordTopMobile: "100px",
       jeremiahWordLeft: "calc(100vw - 400px)",
       jeremiahWordLeftMobile: "calc(100vw - 240px)",
@@ -46,7 +46,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremyTopMobile: "150px",
       jeremyWordTop: "140px",
       jeremyWordTopMobile: "69px",
-      jeremyWordLeft: "calc(100vw - 451px)",
+      jeremyWordLeft: "calc(100vw - 358px)",
       jeremyWordLeftMobile: "calc(100vw - 260px)",
       jeremyMirrored: true,
       jeremyWordMirrored: false,
@@ -58,7 +58,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremiahLeftMobile: "22px",
       jeremiahTop: "calc(100vh - 199px)",
       jeremiahTopMobile: "calc(100vh - 101px)",
-      jeremiahWordTop: "calc(100vh - 385px)",
+      jeremiahWordTop: "calc(100vh - 298px)",
       jeremiahWordTopMobile: "calc(100vh - 210px)",
       jeremiahWordLeft: "275px",
       jeremiahWordLeftMobile: "142px",
@@ -96,6 +96,38 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
       jeremiahWordLeft: "247px",
       jeremiahWordLeftMobile: "151px",
       jeremiahMirrored: false,
+      jeremiahWordMirrored: true,
+    },
+    4: {
+      jeremyFlyInFrom: "right",
+      jeremyMsg: "hoNesTly didn'T tHiNk y0U cOuld do iT kaRmiN mPmp",
+      jeremyImg: raccoonMouthOpen,
+      jeremyLeft: "calc(100vw - 300px)",
+      jeremyLeftMobile: "calc(100vw - 151px)",
+      jeremyTop: "calc(100vh - 255px)",
+      jeremyTopMobile: "calc(100vh - 154px)",
+      jeremyWordHeight: "200px",
+      jeremyWordTop: "calc(100vh - 364px)",
+      jeremyWordTopMobile: "calc(100vh - 297px)",
+      jeremyWordLeft: "calc(100vw - 433px)",
+      jeremyWordLeftMobile: "calc(100vw - 283px)",
+      jeremyMirrored: true,
+      jeremyWordMirrored: false,
+
+      jeremiahFlyInFrom: "bottom",
+      jeremiahMsg: "mPmpMp yeAh noT bAd foR a hOOmaN",
+      jeremiahImg: possumMouthOpen,
+      jeremiahLeft: "22px",
+      jeremiahLeftMobile: "9px",
+      jeremiahTop: "244px",
+      jeremiahTopMobile: "188px",
+      jeremiahWordHeight: "222px",
+      jeremiahWordWidth: "200px",
+      jeremiahWordTop: "91px",
+      jeremiahWordTopMobile: "40px",
+      jeremiahWordLeft: "247px",
+      jeremiahWordLeftMobile: "151px",
+      jeremiahMirrored: true,
       jeremiahWordMirrored: true,
     },
   };
@@ -175,7 +207,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
     let readTimeSecond = 2500;
     if (Number(transition) === 3) {
       readTimeFirst = 4000;
-      readTimeSecond = 3500;
+      readTimeSecond = 4000;
       firstFunc = showJeremiah;
       secondFunc = showJeremy;
     }
@@ -207,7 +239,7 @@ const Transition = ({ onTransitionEnd, title, transition }) => {
   return (
     <div className="transition">
       <h1 className="riddleTitle" ref={titleEl}>
-        Riddle {transition}: {title}
+        {title}
       </h1>
 
       <div
