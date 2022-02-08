@@ -34,9 +34,7 @@ const Riddle = ({
 
   return (
     <div>
-      <h1 className="riddleTitle">
-        Riddle {riddleNumber}: {title}
-      </h1>
+      <h1 className="riddleTitle">{title}</h1>
       {riddleMapper[riddleNumber]}
     </div>
   );
